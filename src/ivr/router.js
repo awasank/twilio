@@ -8,6 +8,10 @@ const account1 = require("./handler/account1");
 const account2 = require("./handler/account2");
 const accountOptions = require("./handler/accountOptions")
 const accountOptionsEnd = require("./handler/accountOptionsEnd")
+const activateCardNumber = require("./handler/activateCardNumber")
+const activateCardDate = require("./handler/activateCardDate")
+const activateCardCvv = require("./handler/activateCardCvv");
+const activateCardFinal = require("./handler/activateCardFinal")
 
 const {names_gatherInputCalls, names_sayPlay} = require("./options/data/optionsTest")
 
@@ -60,6 +64,30 @@ router.post('/account-options-end', (req, res) => {
   console.log("/ivr/account-end")
   const digit = req.body.Digits;
   return res.send(accountOptionsEnd(digit));
+});
+
+router.post('/activate-card-number', (req, res) => {
+  console.log("/ivr/activate-card-number")
+  const digit = req.body.Digits;
+  return res.send(activateCardNumber(digit));
+});
+
+router.post('/activate-card-date', (req, res) => {
+  console.log("/ivr/activate-card-date")
+  const digit = req.body.Digits;
+  return res.send(activateCardDate(digit));
+});
+
+router.post('/activate-card-cvv', (req, res) => {
+  console.log("/ivr/activate-card-cvv")
+  const digit = req.body.Digits;
+  return res.send(activateCardCvv(digit));
+});
+
+router.post('/activate-card-final', (req, res) => {
+  console.log("/ivr/activate-card-cvv")
+  const digit = req.body.Digits;
+  return res.send(activateCardFinal(digit));
 });
 
 // POST: /ivr/planets

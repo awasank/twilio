@@ -16,11 +16,10 @@ module.exports = accountMenu = () => {
         method: 'POST',
     });
 
-    gather.say(cardInfo[0].properties.say,
-    {voice: 'woman', language: 'en-GB'}
+    gather.say(cardInfo[0].properties.say
     );
     // gather.say(offers_ending[0].properties.say,
-    //     {voice: 'woman', language: 'en-GB'}
+    //     {voice: 'alice', language: 'en-GB'}
     // );
 
 

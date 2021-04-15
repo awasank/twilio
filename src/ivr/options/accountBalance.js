@@ -15,12 +15,9 @@ module.exports = accountBalance = () => {
         method: 'POST',
     });
 
-    gather.say(cardInfo[0].properties.say,
-    {voice: 'woman', language: 'en-GB'}
+    gather.say(cardInfo[0].properties.say
     );
-    gather.say(text_end[0].properties.say,
-        {voice: 'woman', language: 'en-GB'}
-    );
+    gather.say(text_end[0].properties.say);
 
 
     return voiceResponse.toString();

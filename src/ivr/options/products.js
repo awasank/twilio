@@ -14,12 +14,9 @@ module.exports = productsList = () => {
         method: 'POST',
     });
 
-    gather.say(product[0].properties.say,
-    {voice: 'woman', language: 'en-GB'}
+    gather.say(product[0].properties.say
     );
-    gather.say(product_ending[0].properties.say,
-        {voice: 'woman', language: 'en-GB'}
-    );
+    gather.say(product_ending[0].properties.say);
 
 
     return voiceResponse.toString();

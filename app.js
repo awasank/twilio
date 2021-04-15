@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -7,6 +8,8 @@ const bodyParser = require('body-parser');
 const router = require('./src/router');
 
 const app = express();
+
+const connectdb = require("./src/db/connectdb")
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +30,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+// connectdb()
 
 // production error handler
 // no stacktraces leaked to user

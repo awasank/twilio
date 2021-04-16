@@ -14,10 +14,16 @@ sayPlay.map(e => names_sayPlay.push(e.name))
 
 // inputCalls.map(e => console.log(e.properties.say))
 // console.log(names)
+// states.map(e => console.log(e.type))
+// var stateList = [];
+// for (var i=0; i<states.length;i++){
+//     console.log(states[i]);
+// }
 
 module.exports = {
     names_gatherInputCalls,
     names_sayPlay,
     gatherInputCalls,
-    sayPlay
+    sayPlay,
+    states
 }

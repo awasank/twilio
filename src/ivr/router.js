@@ -12,7 +12,7 @@ const activateCardNumber = require("./handler/activateCardNumber")
 const activateCardDate = require("./handler/activateCardDate")
 const activateCardCvv = require("./handler/activateCardCvv");
 const activateCardFinal = require("./handler/activateCardFinal")
-
+const rewards = require("./handler/rewards")
 const {names_gatherInputCalls, names_sayPlay} = require("./options/data/optionsTest")
 
 const router = new Router();
@@ -60,6 +60,12 @@ router.post('/account-options', (req, res) => {
   return res.send(accountOptions(digit));
 });
 
+router.post('/account-options-rewards', (req, res) => {
+  console.log("/ivr/account-options")
+  const digit = req.body.Digits;
+  return res.send(rewards(digit));
+});
+
 router.post('/account-options-end', (req, res) => {
   console.log("/ivr/account-end")
   const digit = req.body.Digits;
@@ -95,6 +101,6 @@ router.post('/activate-card-final', (req, res) => {
 //   const digit = req.body.Digits;
 //   res.send(planets(digit));
 // });
-console.log(names_gatherInputCalls)
-console.log(names_sayPlay)
+// console.log(names_gatherInputCalls)
+// console.log(names_sayPlay)
 module.exports = router;

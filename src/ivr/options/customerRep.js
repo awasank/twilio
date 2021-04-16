@@ -6,14 +6,20 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 module.exports = customerRep = () => {
     console.log("Customer Rep")
     const optionActions = {
-        '0': '+12495015162',
+        '0': '+1 249 501 5162',
         '3': '+12027336386',
         '4': '+12027336637',
       };
     
     const twiml = new VoiceResponse();
-    twiml.dial(optionActions[0]);
+    console.log("Dialing " + optionActions[0])
     twiml.say("Connecting to customer representative.")
+    twiml.say("All representatives a currently busy.")
+    twiml.say("You will be redirected to the main menu");
+    twiml.dial(optionActions[0],{
+      action: "/ivr/welcome"
+    });
+    
     return twiml.toString();
 
     // const response = new VoiceResponse();

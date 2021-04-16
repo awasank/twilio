@@ -15,7 +15,9 @@ module.exports = function account1(digits) {
     const optionActions = {
       '1': accountBalance,
       '2': lastTransaction,
-      '3': rewardPoints
+      '3': rewardPoints,
+      '4': cardIssue,
+      '5': accountIssue
     };
     // const digit = '2'
     // console.log("digit")

@@ -4,16 +4,19 @@ const accountInfo1 = require("../options/accountInfo1");
 const accountInfo2 = require("../options/accountInfo2");
 const redirectWelcome = require("../options/redirectWelcome")
 const accountMenu = require("../options/accountMenu")
-const customerRep = require("../options/customerRep")
+const customerRep = require("../options/customerRep");
+const invalidInfo = require("../options/invalidInfo");
 
 module.exports = function account2(digits) {
-    console.log("Here")
-    console.log("account2")
+    // console.log("Here")
+    console.log("handler account2")
     console.log(digits)
+    // console.log("card no " + userInfo.cardNo)
     var digit = ''
     if (digits === "1234") {
         digit = '1';
     } else {
+        // invalidInfo()
         digit = '2';
     }
 

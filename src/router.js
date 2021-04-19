@@ -3,7 +3,7 @@ const Router = require('express').Router;
 const ivrRouter = require('./ivr/router');
 
 const router = new Router();
-
+var userInfo = {};
 // GET: / - home page
 router.get('/', (req, res) => {
   res.render('index');

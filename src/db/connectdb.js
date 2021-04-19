@@ -8,13 +8,13 @@ module.exports = async function connectdb(){
       });
       mongoose.set("useCreateIndex", true);
     // User.  
-    User.find({}, (err, usr) => {
-        if (err){
-            console.log(err)
-        } else{
-            usr.map(u => console.log(u))
-        }
-    })  
+    // User.find({}, (err, usr) => {
+    //     if (err){
+    //         console.log(err)
+    //     } else{
+    //         usr.map(u => console.log(u))
+    //     }
+    // })  
 }
 
  

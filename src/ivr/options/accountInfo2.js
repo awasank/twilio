@@ -7,7 +7,7 @@ module.exports = accountInfo2 = () => {
     // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
     const voiceResponse = new VoiceResponse();
     // console.log("Products");
-    console.log("accountInfo2")
+    console.log("options accountInfo2")
     const gather = voiceResponse.gather({
         action: '/ivr/account2',
         numDigits: '4',

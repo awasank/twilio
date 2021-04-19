@@ -1,14 +1,23 @@
 const User = require("./userSchema");
 
-module.exports = checkUserCard = (cardNo) => {
-    // return false
-    User.findOne({cardNo: cardNo}, (err, user) => {
+module.exports = checkUserCard = async (cardNo, callback) => {
+    
+    console.log("card number " + cardNo)
+    await User.findOne({cardnumber: {$regex: cardNo}}, (err, user) => {
         if (err) {
-            return false
+            console.log(err)
+            callback(err, false)
+            // return false
         } else if (!user) {
-            return false
+            console.log("not found")
+            callback(null, false)
+            // return false
         } else {
-            return true
+            console.log("found")
+            callback(null, true)
+            // return true
         }
     })
+    // console.log(res)
+    // return res
 }

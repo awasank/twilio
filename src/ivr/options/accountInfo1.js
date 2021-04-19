@@ -3,7 +3,7 @@ const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
 module.exports = accountInfo1 = () => {
-    console.log("Account 1")
+    console.log("options Account 1")
     const cardInfo = gatherInputCalls.filter(e => e.name === "card_info_gather")
     // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
     const voiceResponse = new VoiceResponse();

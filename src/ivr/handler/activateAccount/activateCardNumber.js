@@ -1,10 +1,10 @@
-const productsList = require("../options/products");
-const offersList = require("../options/offers");
-const accountInfo1 = require("../options/accountInfo1");
-const accountInfo2 = require("../options/accountInfo2");
-const redirectWelcome = require("../options/redirectWelcome")
-const customerRep = require("../options/customerRep")
-const activateCardDt = require("../options/activateCardDt");
+const productsList = require("../../options/products");
+const offersList = require("../../options/offers");
+const accountInfo1 = require("../../options/accountInfo1");
+const accountInfo2 = require("../../options/accountInfo2");
+const redirectWelcome = require("../../options/redirectWelcome")
+const customerRep = require("../../options/customerRep")
+const activateCardDt = require("../../options/activateCardDt");
 
 module.exports = function activateCardNumber(digits) {
     // console.log("account1")

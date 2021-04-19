@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// connectdb()
+connectdb()
 
 // production error handler
 // no stacktraces leaked to user

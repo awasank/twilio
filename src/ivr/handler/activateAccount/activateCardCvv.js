@@ -1,11 +1,11 @@
-const productsList = require("../options/products");
-const offersList = require("../options/offers");
-const accountInfo1 = require("../options/accountInfo1");
-const accountInfo2 = require("../options/accountInfo2");
-const redirectWelcome = require("../options/redirectWelcome")
-const customerRep = require("../options/customerRep")
-const activateCardDt = require("../options/activateCardDt");
-const activateFinal = require("../options/activateFinal");
+const productsList = require("../../options/products");
+const offersList = require("../../options/offers");
+const accountInfo1 = require("../../options/accountInfo1");
+const accountInfo2 = require("../../options/accountInfo2");
+const redirectWelcome = require("../../options/redirectWelcome")
+const customerRep = require("../../options/customerRep")
+const activateCardDt = require("../../options/activateCardDt");
+const activateFinal = require("../../options/activateFinal");
 
 module.exports = function activateCardDate(digits) {
     // console.log("account1")

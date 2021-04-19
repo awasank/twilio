@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-connectdb()
+// connectdb()
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});

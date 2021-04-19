@@ -4,17 +4,14 @@ const welcome = require("./handler/welcome");
 const menu = require("./handler/menu");
 const products = require("./handler/products");
 const offers = require("./handler/offers");
-
-const account1 = require("./handler/accountInfo/account1");
-const account2 = require("./handler/accountInfo/account2");
-const accountOptions = require("./handler/accountInfo/accountOptions")
-const accountOptionsEnd = require("./handler/accountInfo/accountOptionsEnd")
-
-const activateCardNumber = require("./handler/activateAccount/activateCardNumber")
-const activateCardDate = require("./handler/activateAccount/activateCardDate")
-const activateCardCvv = require("./handler/activateAccount/activateCardCvv");
-const activateCardFinal = require("./handler/activateAccount/activateCardFinal")
-
+const account1 = require("./handler/account1");
+const account2 = require("./handler/account2");
+const accountOptions = require("./handler/accountOptions")
+const accountOptionsEnd = require("./handler/accountOptionsEnd")
+const activateCardNumber = require("./handler/activateCardNumber")
+const activateCardDate = require("./handler/activateCardDate")
+const activateCardCvv = require("./handler/activateCardCvv");
+const activateCardFinal = require("./handler/activateCardFinal")
 const rewards = require("./handler/rewards")
 const rewardsFinal = require("./handler/rewardsFinal")
 

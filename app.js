@@ -5,11 +5,18 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+
+
 const router = require('./src/router');
 
 const app = express();
 
-const connectdb = require("./src/db/connectdb")
+app.use(cors());
+app.use(express.json());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +39,15 @@ app.use(function(req, res, next) {
 });
 
 // connectdb()
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log('MongoDB database connection established successfully')
+}) 
+
 
 // production error handler
 // no stacktraces leaked to user

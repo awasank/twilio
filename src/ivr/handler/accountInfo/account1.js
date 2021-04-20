@@ -5,18 +5,27 @@ const accountInfo2 = require("../../options/accountInfo2");
 const redirectWelcome = require("../../options/redirectWelcome")
 const accountMenu = require("../../options/accountMenu")
 const customerRep = require("../../options/customerRep")
+const checkUserCard = require("../../../db/checkUserCard")
 
-module.exports = function account1(digits) {
+module.exports = async function account1(digits) {
     console.log("Here")
     console.log("account1")
     console.log(digits)
     var digit = ''
-    if (digits === "1234") {
-        digit = '1';
-    } else {
-        digit = '2';
-    }
+    // if (digits === "1234") {
+    //     digit = '1';
+    // } else {
+    //     digit = '2';
+    // }
 
+    const userCardStatus = await checkUserCard(digits);
+    console.log(userCardStatus)
+    if (userCardStatus) {
+        digit = 1
+    } else {
+        digit = 2
+    }
+    // digit = 1;
     const optionActions = {
       '1': accountInfo2,
       '2': accountInfo1,

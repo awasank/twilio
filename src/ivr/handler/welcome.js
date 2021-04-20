@@ -1,6 +1,6 @@
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const {gatherInputCalls, names_gatherInputCalls} = require("../options/data/optionsTest")
-module.exports = function welcome() {
+module.exports = async function welcome() {
     const voiceResponse = new VoiceResponse();
     console.log("enter welcome")
     const gather = voiceResponse.gather({

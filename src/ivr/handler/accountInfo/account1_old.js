@@ -12,29 +12,29 @@ module.exports = async function account1(digits) {
     // console.log("digits")
     // console.log(typeof digits)
     var digit = ''
-    // checkUserCard(digits, (err, userCardStatus) => {
-    //   // let digit = ''
-    //   if (userCardStatus) {
-    //     digit = '1';
-    // // } else {
-    // //     // invalidInfo()
-    // //     console.log("Here")
-    // //     digit = '2';
-    // }
-    // console.log(digit)
-    // const optionActions = {
-    //   '1': accountInfo2,
-    //   '2': accountInfo1,
-    //   '3': customerRep
-    // };
-    // // const digit = '2'
-    // // console.log("digit")
-    // // console.log(typeof digit)
-    // return (optionActions[digit])
-    //   ? optionActions[digit]()
-    //   : redirectWelcome();
-    // // return digit
-    // });
+    checkUserCard(digits, (err, userCardStatus) => {
+      // let digit = ''
+      if (userCardStatus) {
+        digit = '1';
+    } else {
+        // invalidInfo()
+        console.log("Here")
+        digit = '2';
+    }
+    console.log(digit)
+    const optionActions = {
+      '1': accountInfo2,
+      '2': accountInfo1,
+      '3': customerRep
+    };
+    // const digit = '2'
+    // console.log("digit")
+    // console.log(typeof digit)
+    return (optionActions[digit])
+      ? optionActions[digit]()
+      : redirectWelcome();
+    // return digit
+    });
     // const userCardStatus = await checkUserCard(digits, (err, status) => {
       
     // })

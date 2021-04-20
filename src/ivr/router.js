@@ -23,16 +23,16 @@ const {names_gatherInputCalls, names_sayPlay} = require("./options/data/optionsT
 const router = new Router();
 
 // POST: /ivr/welcome
-router.post('/welcome', (req, res) => {
+router.post('/welcome', async (req, res) => {
   console.log("/welcome")
-  res.send(welcome());
+  res.send(await welcome());
 });
 
 // POST: /ivr/menu
-router.post('/menu', (req, res) => {
+router.post('/menu', async (req, res) => {
   console.log("/ivr/menu")
   const digit = req.body.Digits;
-  return res.send(menu(digit));
+  return res.send(await menu(digit));
 });
 
 router.post('/products', (req, res) => {
@@ -47,16 +47,16 @@ router.post('/offers', (req, res) => {
   return res.send(offers(digit));
 });
 
-router.post('/account1', (req, res) => {
+router.post('/account1', async (req, res) => {
   console.log("/ivr/account1")
   const digit = req.body.Digits;
-  return res.send(account1(digit));
+  return res.send(await account1(digit));
 });
 
-router.post('/account2', (req, res) => {
+router.post('/account2', async (req, res) => {
   console.log("/ivr/account2")
   const digit = req.body.Digits;
-  return res.send(account2(digit));
+  return res.send(await account2(digit));
 });
 
 router.post('/account-options', (req, res) => {

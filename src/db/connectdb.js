@@ -15,14 +15,18 @@ module.exports = async function connectdb(){
     //     } else{
     //         usr.map(u => console.log(u))
     //     }
-    // })  
-    checkUserCard('6746', (err, status) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(status)
-        }
-    })
+    // })
+      
+    // checkUserCard('6746', (err, status) => {
+    //     if (err) {
+    //         console.log(err)
+    //     } else {
+    //         console.log(status)
+    //     }
+    // })
+    cardNo = '6746';
+    const user = await User.findOne({cardnumber: {$regex: cardNo}})
+    console.log(user)
     // console.log(resp)
 }
 

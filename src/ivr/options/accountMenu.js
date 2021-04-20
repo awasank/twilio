@@ -2,7 +2,7 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
-module.exports = accountMenu = (pin, cardDigits) => {
+module.exports = accountMenu = (userAccount, pin, cardDigits) => {
     console.log("options accountMenu")
     const cardInfo = gatherInputCalls.filter(e => e.name === "check_acc_menu")
     console.log(cardInfo[0].properties.say)

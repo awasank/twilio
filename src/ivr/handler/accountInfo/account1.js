@@ -21,6 +21,7 @@ module.exports = async function account1(digits) {
     var cardDigits = ''
     const userCardStatus = await checkUserCard(digits);
     console.log(userCardStatus)
+    var userAccount = {};
     if (userCardStatus) {
         cardDigits = digits
         digit = 1
@@ -36,6 +37,6 @@ module.exports = async function account1(digits) {
     };
   
     return (optionActions[digit])
-      ? optionActions[digit](digits, cardDigits)
+      ? optionActions[digit](userAccount, digits, cardDigits)
       : redirectWelcome();
 };

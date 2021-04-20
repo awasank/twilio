@@ -15,6 +15,7 @@ module.exports = async function accountOptionsEnd(digits, pin, cardDigits) {
     console.log(digits)
     console.log(pin)
     console.log(cardDigits)
+    
     const optionActions = {
       '1': accountMenu,
       '9': redirectWelcome,
@@ -24,6 +25,6 @@ module.exports = async function accountOptionsEnd(digits, pin, cardDigits) {
     // console.log("digit")
     // console.log(typeof digit)
     return (optionActions[digits])
-      ? optionActions[digits](pin, cardDigits)
+      ? optionActions[digits](null, pin, cardDigits)
       : redirectWelcome();
 };

@@ -56,8 +56,13 @@ router.post('/account1', async (req, res) => {
 router.post('/account2:cardDigits', async (req, res) => {
   console.log("/ivr/account2")
   const digit = req.body.Digits;
+<<<<<<< HEAD
   const cardDigits = req.params.cardDigits
   return res.send(await account2(null, digit, cardDigits));
+=======
+  const cardDigits = req.param.cardDigits;
+  return res.send(await account2(digit, cardDigits));
+>>>>>>> origin/menu5
 });
 
 router.post('/account-options:pin&:cardDigits', async (req, res) => {
@@ -84,22 +89,25 @@ router.post('/account-options-end/:pin&:cardDigits', async (req, res) => {
   return res.send(await accountOptionsEnd(digit, req.params.pin, req.params.cardDigits));
 });
 
-router.post('/activate-card-number', (req, res) => {
+router.post('/activate-card-number', async (req, res) => {
   console.log("/ivr/activate-card-number")
   const digit = req.body.Digits;
-  return res.send(activateCardNumber(digit));
+  return res.send( await activateCardNumber(digit));
 });
 
-router.post('/activate-card-date', (req, res) => {
+router.post('/activate-card-date:cardDigits', async (req, res) => {
   console.log("/ivr/activate-card-date")
   const digit = req.body.Digits;
-  return res.send(activateCardDate(digit));
+  const cardDigits = req.params.cardDigits;
+  console.log(cardDigits);
+
+  return res.send( await activateCardDate(digit, cardDigits));
 });
 
-router.post('/activate-card-cvv', (req, res) => {
+router.post('/activate-card-cvv:expDate&:cardDigits', async (req, res) => {
   console.log("/ivr/activate-card-cvv")
   const digit = req.body.Digits;
-  return res.send(activateCardCvv(digit));
+  return res.send( await activateCardCvv(digit, req.params.expDate ,req.params.cardDigits));
 });
 
 router.post('/activate-card-final', (req, res) => {

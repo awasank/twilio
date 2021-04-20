@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: {
+    username:{
         type: String,
         required: true,
         unique: true,
@@ -16,11 +16,17 @@ const userSchema = new Schema({
     pinnumber: String,
     balance: String,
     rewardpts: String,
+<<<<<<< HEAD
     expirydate: String,
     cvv: String,
     lasttransaction: String,
     createdAt: String,
     updatedAt: String
+=======
+    cvv: String,
+    cardnumber: String,
+    lasttransaction: Date
+>>>>>>> origin/menu5
 }, {
     timestamps: true,
 })

@@ -1,7 +1,7 @@
 const VoiceResponse = require("twilio").twiml.VoiceResponse;
 
 
-module.exports = invalidInfo = () => {
+module.exports = invalidInfo = async () => {
 
 
     const voiceResponse = new VoiceResponse();
@@ -13,14 +13,14 @@ module.exports = invalidInfo = () => {
         method: 'POST',
     });
 
-    gather.say("That is an invalid response"
+    await gather.say("That is an invalid response"
     );
     // gather.say(offers_ending[0].properties.say,
     //     {voice: 'alice', language: 'en-GB'}
     // );
 
 
-    return voiceResponse.toString();
+    return await voiceResponse.toString();
 
     // const twiml = new voiceResponse;
     // console.log("invalid response")

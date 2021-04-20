@@ -1,8 +1,9 @@
 const User = require("./userSchema")
 
-module.exports = checkUserPin = async (pin) => {
+module.exports = checkUserPin = async (pin, cardDigits) => {
     // cardNo = '6746';
-    const user = await User.findOne({pinnumber: pin})
+    console.log("card info" + cardDigits + pin)
+    const user = await User.findOne({pinnumber: pin, cardnumber: {$regex: cardDigits}})
     // console.log(user)
     // return user
     if (user) {

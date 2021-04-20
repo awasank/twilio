@@ -6,6 +6,7 @@ const redirectWelcome = require("../../options/redirectWelcome")
 const accountMenu = require("../../options/accountMenu")
 const customerRep = require("../../options/customerRep")
 const checkUserCard = require("../../../db/checkUserCard")
+const invalidInfo = require("../../options/invalidInfo");
 
 module.exports = async function account1(digits) {
     console.log("Here")
@@ -17,12 +18,14 @@ module.exports = async function account1(digits) {
     // } else {
     //     digit = '2';
     // }
-
+    var cardDigits = ''
     const userCardStatus = await checkUserCard(digits);
     console.log(userCardStatus)
     if (userCardStatus) {
+        cardDigits = digits
         digit = 1
     } else {
+        await invalidInfo()
         digit = 2
     }
     // digit = 1;
@@ -33,6 +36,6 @@ module.exports = async function account1(digits) {
     };
   
     return (optionActions[digit])
-      ? optionActions[digit]()
+      ? optionActions[digit](cardDigits)
       : redirectWelcome();
 };

@@ -2,13 +2,10 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 module.exports = accountInfo2 = (userAcc, digits, cardDigits) => {
     // console.log("card digits" + cardDigits)
-=======
-module.exports = accountInfo2 = (cardDigits) => {
-    //console.log(cardDigits)
->>>>>>> origin/menu5
+
     const cardInfo = gatherInputCalls.filter(e => e.name === "card_info_pin_gather")
     // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
     const voiceResponse = new VoiceResponse();

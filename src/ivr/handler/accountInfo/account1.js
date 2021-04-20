@@ -21,15 +21,11 @@ module.exports = async function account1(digits) {
     var cardDigits = ''
     const userCardStatus = await checkUserCard(digits);
     console.log(userCardStatus)
-<<<<<<< HEAD
+// <<<<<<< HEAD
     var userAccount = {};
     if (userCardStatus) {
         cardDigits = digits
-=======
-    let cardDigits = '';
-    if (userCardStatus) {
-        cardDigits = digits;
->>>>>>> origin/menu5
+
         digit = 1
     } else {
         await invalidInfo()
@@ -43,10 +39,6 @@ module.exports = async function account1(digits) {
     };
   
     return (optionActions[digit])
-<<<<<<< HEAD
       ? optionActions[digit](userAccount, digits, cardDigits)
-=======
-      ? optionActions[digit](cardDigits)
->>>>>>> origin/menu5
       : redirectWelcome();
 };

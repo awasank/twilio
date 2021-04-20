@@ -56,13 +56,10 @@ router.post('/account1', async (req, res) => {
 router.post('/account2:cardDigits', async (req, res) => {
   console.log("/ivr/account2")
   const digit = req.body.Digits;
-<<<<<<< HEAD
+// <<<<<<< HEAD
   const cardDigits = req.params.cardDigits
   return res.send(await account2(null, digit, cardDigits));
-=======
-  const cardDigits = req.param.cardDigits;
-  return res.send(await account2(digit, cardDigits));
->>>>>>> origin/menu5
+
 });
 
 router.post('/account-options:pin&:cardDigits', async (req, res) => {

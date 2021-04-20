@@ -7,10 +7,13 @@ const rewardPoints = require("../options/rewardPoints");
 const accountMenu = require("../options/accountMenu");
 const pointBalance = require("../options/pointBalance")
 const orderDetails = require("../options/orderDetails")
+const getAccountInfo = require("../../db/getAccountInfo")
 
-module.exports = function rewards(digit) {
+module.exports = async function rewards(digit, pin, cardDigits) {
     console.log("Rewards")
     console.log(digit)
+
+    const userAccount = await getAccountInfo(pin, cardDigits)
     const optionActions = {
       '1': pointBalance, //
       '2': orderDetails,
@@ -21,6 +24,6 @@ module.exports = function rewards(digit) {
     };
   
     return (optionActions[digit])
-      ? optionActions[digit]()
+      ? optionActions[digit](userAccount, pin, cardDigits)
       : redirectWelcome();
 };

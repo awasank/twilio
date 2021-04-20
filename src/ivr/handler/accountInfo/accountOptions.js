@@ -5,13 +5,18 @@ const customerRep = require("../../options/customerRep")
 const accountBalance = require("../../options/accountBalance");
 const lastTransaction = require("../../options/lastTransaction");
 const rewardPoints = require("../../options/rewardPoints");
+const getAccountInfo = require("../../../db/getAccountInfo")
 
-module.exports = function account1(digits) {
+module.exports = async function accountOptions(digits, pin, cardDigits) {
     // console.log("account1")
     // console.log("digits")
     // console.log(typeof digits)
-    console.log("accountOptions")
-    console.log(digits)
+    console.log("handler accountOptions")
+    // console.log(digits)
+    console.log(pin)
+    console.log(cardDigits)
+    const userAccount = await getAccountInfo(pin, cardDigits)
+    // console.log(userAccount)
     const optionActions = {
       '1': accountBalance,
       '2': lastTransaction,
@@ -23,6 +28,6 @@ module.exports = function account1(digits) {
     // console.log("digit")
     // console.log(typeof digit)
     return (optionActions[digits])
-      ? optionActions[digits]()
+      ? optionActions[digits](userAccount, pin, cardDigits)
       : redirectWelcome();
 };

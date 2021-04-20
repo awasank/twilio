@@ -3,7 +3,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 
-module.exports = customerRep = () => {
+module.exports = customerRep = (userAccount, pin, cardDigits) => {
     console.log("Customer Rep")
     const optionActions = {
         '0': '+1 249 501 5162',

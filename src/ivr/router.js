@@ -60,27 +60,28 @@ router.post('/account2:cardDigits', async (req, res) => {
   return res.send(await account2(digit, cardDigits));
 });
 
-router.post('/account-options', (req, res) => {
+router.post('/account-options:pin&:cardDigits', async (req, res) => {
   console.log("/ivr/account-options")
   const digit = req.body.Digits;
-  return res.send(accountOptions(digit));
+  return res.send(await accountOptions(digit, req.params.pin, req.params.cardDigits));
 });
 
-router.post('/account-options-rewards', (req, res) => {
+router.post('/account-options-rewards/:pin&:cardDigits', async (req, res) => {
   console.log("/ivr/account-options-rewards")
   const digit = req.body.Digits;
-  return res.send(rewards(digit));
+  return res.send(await rewards(digit, req.params.pin, req.params.cardDigits));
 });
 
-router.post('/account-options-rewards-ending', (req, res) => {
+router.post('/account-options-rewards-ending/:pin&:cardDigits', async (req, res) => {
   console.log("/account-options-rewards-ending")
   const digit = req.body.Digits;
-  return res.send(rewardsFinal(digit));
+  return res.send(await rewardsFinal(digit, req.params.pin, req.params.cardDigits));
 });
-router.post('/account-options-end', (req, res) => {
+
+router.post('/account-options-end/:pin&:cardDigits', async (req, res) => {
   console.log("/ivr/account-end")
   const digit = req.body.Digits;
-  return res.send(accountOptionsEnd(digit));
+  return res.send(await accountOptionsEnd(digit, req.params.pin, req.params.cardDigits));
 });
 
 router.post('/activate-card-number', (req, res) => {

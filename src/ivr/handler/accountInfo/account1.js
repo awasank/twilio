@@ -9,9 +9,9 @@ const checkUserCard = require("../../../db/checkUserCard")
 const invalidInfo = require("../../options/invalidInfo");
 
 module.exports = async function account1(digits) {
-    console.log("Here")
-    console.log("account1")
-    console.log(digits)
+    // console.log("Here")
+    console.log("Handler account1")
+    // console.log(digits)
     var digit = ''
     // if (digits === "1234") {
     //     digit = '1';
@@ -36,6 +36,6 @@ module.exports = async function account1(digits) {
     };
   
     return (optionActions[digit])
-      ? optionActions[digit](cardDigits)
+      ? optionActions[digit](digits, cardDigits)
       : redirectWelcome();
 };

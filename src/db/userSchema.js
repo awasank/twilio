@@ -10,10 +10,17 @@ const userSchema = new Schema({
         trim: true,
         minLength: 3,
     },
-    firstName: String,
-    lastName: String,
-    cardNo: String,
-    pin: String,
+    firstname: String,
+    lastname: String,
+    cardnumber: String,
+    pinnumber: String,
+    balance: String,
+    rewardpts: String,
+    expirydate: String,
+    cvv: String,
+    lasttransaction: String,
+    createdAt: String,
+    updatedAt: String
 }, {
     timestamps: true,
 })

@@ -7,12 +7,14 @@ const lastTransaction = require("../../options/lastTransaction");
 const rewardPoints = require("../../options/rewardPoints");
 const accountMenu = require("../../options/accountMenu")
 
-module.exports = function account1(digits) {
+module.exports = async function accountOptionsEnd(digits, pin, cardDigits) {
     // console.log("account1")
     // console.log("digits")
     // console.log(typeof digits)
-    console.log("accountOptions")
+    console.log("handler accountOptionsEnd")
     console.log(digits)
+    console.log(pin)
+    console.log(cardDigits)
     const optionActions = {
       '1': accountMenu,
       '9': redirectWelcome,
@@ -22,6 +24,6 @@ module.exports = function account1(digits) {
     // console.log("digit")
     // console.log(typeof digit)
     return (optionActions[digits])
-      ? optionActions[digits]()
+      ? optionActions[digits](pin, cardDigits)
       : redirectWelcome();
 };

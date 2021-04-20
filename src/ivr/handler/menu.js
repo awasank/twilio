@@ -7,8 +7,9 @@ const customerRep = require("../options/customerRep");
 const activateCardNo = require("../options/activateCardNo");
 
 module.exports = function menu(digit) {
-    console.log("Here")
+    // console.log("Here")
     console.log(digit)
+    console.log("Menu")
     const optionActions = {
       '1': productsList,
       '2': offersList,

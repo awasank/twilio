@@ -2,21 +2,23 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
-module.exports = pointBalance = () => {
+module.exports = pointBalance = (userAccount, pin, cardDigits) => {
     console.log("Point balance")
-    const offers = sayPlay.filter(e => e.name === "points_play")
+    // const offers = sayPlay.filter(e => e.name === "points_play")
     const offers_ending = gatherInputCalls.filter(e => e.name === "rewards_ending_gather")
     const voiceResponse = new VoiceResponse();
     // console.log("Products");
 
     const gather = voiceResponse.gather({
-        action: '/ivr/account-options-rewards-ending',
+        action: `/ivr/account-options-rewards-ending/${pin}&${cardDigits}`,
         numDigits: '1',
         method: 'POST',
     });
 
-    gather.say(offers[0].properties.say
-    );
+    // gather.say(offers[0].properties.say
+    // );
+    const text = "You reward point balance is " + userAccount.rewardpts;
+    gather.say(text)
     gather.say(offers_ending[0].properties.say);
 
 

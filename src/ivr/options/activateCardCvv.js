@@ -2,8 +2,9 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
-module.exports = activateCardCvv = () => {
+module.exports = activateCardCvv = (digits, expDate, cardDigits) => {
     console.log("Activate Card CVV")
+    console.log(cardDigits + " in activate cvv")
     const cardInfo = gatherInputCalls.filter(e => e.name === "activate_cvv_gather")
     console.log(cardInfo[0].properties.say)
     // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
@@ -11,7 +12,7 @@ module.exports = activateCardCvv = () => {
     // console.log("Account Menu");
 
     const gather = voiceResponse.gather({
-        action: '/ivr/activate-card-cvv',
+        action: `/ivr/activate-card-cvv${expDate}&${cardDigits}`,
         numDigits: '3',
         method: 'POST',
     });

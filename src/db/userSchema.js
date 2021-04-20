@@ -3,17 +3,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: {
+    username:{
         type: String,
         required: true,
         unique: true,
         trim: true,
         minLength: 3,
     },
-    firstName: String,
-    lastName: String,
-    cardNo: String,
-    pin: String,
+    firstname: String,
+    lastname: String,
+    cardnumber: String,
+    pinnumber: String,
+    balance: String,
+    rewardpts: String,
+    cvv: String,
+    cardnumber: String,
+    lasttransaction: Date
 }, {
     timestamps: true,
 })

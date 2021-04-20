@@ -24,7 +24,7 @@ module.exports = async function connectdb(){
     //         console.log(status)
     //     }
     // })
-    cardNo = '6746';
+    cardNo = '1234';
     const user = await User.findOne({cardnumber: {$regex: cardNo}})
     console.log(user)
     // console.log(resp)

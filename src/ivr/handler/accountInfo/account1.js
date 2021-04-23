@@ -7,7 +7,9 @@ const redirectWelcome = require("../../options/redirectWelcome")
 const customerRep = require("../../options/customerRep")
 const checkUserCard = require("../../../db/checkUserCard")
 const invalidInfo = require("../../options/invalidInfo");
-module.exports = async function account1(digits) {
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
+
+module.exports = async function account1(digits, res) {
     
     console.log("Handler account1")
     
@@ -23,7 +25,9 @@ module.exports = async function account1(digits) {
     if (userCardStatus) {
         cardDigits = digits
         digit = 1
+        var say = ''
     } else {
+        var say = 'That was an invalid response.'
         digit = 2
     }
     const optionActions = {
@@ -33,6 +37,7 @@ module.exports = async function account1(digits) {
     };
   
     return (optionActions[digit])
-      ? optionActions[digit](userAccount, digits, cardDigits)
+      ? optionActions[digit](userAccount, digits, cardDigits, say)
       : redirectWelcome();
 };
+

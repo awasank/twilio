@@ -1,20 +1,14 @@
 const VoiceResponse = require("twilio").twiml.VoiceResponse;
 
 
-module.exports = invalidInfo = async () => {
+module.exports = invalidInfo = async (url) => {
 
-    const voiceResponse = new VoiceResponse();
-
-    console.log("invalid response")
-    const gather = voiceResponse.gather({
-        action: '/ivr/account1',
-        numDigits: '4',
-        method: 'POST',
-    });
-
-    voiceResponse.say("That was an invalid response"
-    );
-
-    return voiceResponse.toString();
+    const twiml = new VoiceResponse();
+    console.log("Invalid info")
+    twiml.say('Returning to the main menu');
+  
+    twiml.redirect(url);
+  
+    return twiml.toString();
 
 }

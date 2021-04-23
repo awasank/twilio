@@ -14,7 +14,7 @@ module.exports = activateCardNo = () => {
         numDigits: '14',
         method: 'POST',
     });
-
+    // gather.say(say)
     gather.say(cardInfo[0].properties.say
     );
 

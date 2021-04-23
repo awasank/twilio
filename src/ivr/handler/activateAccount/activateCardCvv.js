@@ -7,6 +7,8 @@ const customerRep = require("../../options/customerRep")
 // const activateCardDt = require("../../options/activateCardDt");
 const activateFinal = require("../../options/activateFinal");
 const checkActivationCvv = require("../../../db/checkActivationCvv");
+const activateCardCvv = require("../../options/activateCardCvv");
+const addUserDetail = require("../../../db/addUserDetail");
 
 module.exports = async function activateCardDate(digits, expDate, cardDigits) {
     
@@ -19,17 +21,18 @@ module.exports = async function activateCardDate(digits, expDate, cardDigits) {
     if (userCardStatus) {
         cvv = digits
         digit = '1';
+        // addUserDetail(digits, expDate, cardDigits)
     } else {
         digit = '2';
     }
     console.log(digit)
     const optionActions = {
       '1': activateFinal,
-      '2': accountInfo1,
+      '2': activateCardCvv,
       '3': customerRep
     };
     
     return (optionActions[digit])
-      ? optionActions[digit]()
+      ? optionActions[digit](digits, expDate, cardDigits)
       : redirectWelcome();
 };

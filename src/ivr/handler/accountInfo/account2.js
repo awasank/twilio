@@ -20,8 +20,10 @@ module.exports = async function account2(userAcc, digits, cardDigits) {
     if (userCardStatus) {
         userAccount = userCardStatus
         digit = 1
+        var say = ''
     } else {
         digit = 2
+        var say = "That was an invalid response."
     }
     const optionActions = {
       '1': accountMenu,
@@ -30,6 +32,6 @@ module.exports = async function account2(userAcc, digits, cardDigits) {
     };
   
     return (optionActions[digit])
-      ? optionActions[digit](userAccount, digits, cardDigits)
+      ? optionActions[digit](userAccount, digits, cardDigits, say)
       : redirectWelcome();
 };

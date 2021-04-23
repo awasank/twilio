@@ -3,7 +3,7 @@ const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
 
-module.exports = accountInfo2 = (userAcc, digits, cardDigits) => {
+module.exports = accountInfo2 = (userAcc, digits, cardDigits, say) => {
     
     const cardInfo = gatherInputCalls.filter(e => e.name === "card_info_pin_gather")
     
@@ -15,9 +15,10 @@ module.exports = accountInfo2 = (userAcc, digits, cardDigits) => {
         numDigits: '4',
         method: 'POST',
     });
-
+    gather.say(say)
     gather.say(cardInfo[0].properties.say
     );
-    
+    voiceResponse.say("We did not receive any input.")
+    voiceResponse.redirect("/ivr/welcome")
     return voiceResponse.toString();
 }

@@ -18,6 +18,7 @@ module.exports = activateCardCvv = (digits, expDate, cardDigits) => {
 
     gather.say(cardInfo[0].properties.say
     );
-
+    voiceResponse.say("We did not receive any input.")
+    voiceResponse.redirect("/ivr/welcome")
     return voiceResponse.toString();
 }

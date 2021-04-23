@@ -50,7 +50,7 @@ router.post('/offers', (req, res) => {
 router.post('/account1', async (req, res) => {
   console.log("/ivr/account1")
   const digit = req.body.Digits;
-  return res.send(await account1(digit));
+  return res.send(await account1(digit, res));
 });
 
 router.post('/account2:cardDigits', async (req, res) => {

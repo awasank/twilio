@@ -8,9 +8,9 @@ module.exports = async function connectdb(){
       });
       mongoose.set("useCreateIndex", true);
     
-    // cardNo = '1234';
-    // const user = await User.findOne({cardnumber: {$regex: cardNo}})
-    // console.log(user)
+    cardNo = '1234';
+    const user = await User.findOne({cardnumber: {$regex: cardNo}})
+    console.log(user)
     
 }
 

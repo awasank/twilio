@@ -2,7 +2,7 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const {names_sayPlay, sayPlay} = require("./data/optionsTest");
 const {gatherInputCalls} = require("./data/optionsTest")
 
-module.exports = activateCardDt = (cardDigits) => {
+module.exports = activateCardDt = (digits, exp, cardDigits) => {
     console.log("Activate Card Number")
     const cardInfo = gatherInputCalls.filter(e => e.name === "card_expiry_activate_gather")
 
@@ -17,6 +17,7 @@ module.exports = activateCardDt = (cardDigits) => {
 
     gather.say(cardInfo[0].properties.say
     );
-
+    voiceResponse.say("We did not receive any input.")
+    voiceResponse.redirect("/ivr/welcome")
     return voiceResponse.toString();
 }

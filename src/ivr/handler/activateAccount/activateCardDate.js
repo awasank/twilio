@@ -7,6 +7,7 @@ const customerRep = require("../../options/customerRep")
 // const activateCardDt = require("../../options/activateCardDt");
 const activateCardCvv = require("../../options/activateCardCvv");
 const checkDateActivation = require("../../../db/checkDateActivation");
+const activateCardDt = require("../../options/activateCardDt");
 
 module.exports = async function activateCardDate(digits, cardDigits) {
     console.log("Activate card date" + digits + " " + cardDigits)
@@ -24,7 +25,7 @@ module.exports = async function activateCardDate(digits, cardDigits) {
     console.log(digit)
     const optionActions = {
       '1': activateCardCvv,
-      '2': accountInfo1,
+      '2': activateCardDt,
       '3': customerRep
     };
 

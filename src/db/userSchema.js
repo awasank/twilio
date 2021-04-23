@@ -20,7 +20,8 @@ const userSchema = new Schema({
     cvv: String,
     lasttransaction: String,
     createdAt: String,
-    updatedAt: String
+    updatedAt: String,
+    cardStatus: {type:Boolean, default: false}
 }, {
     timestamps: true,
 })

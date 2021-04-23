@@ -1,7 +1,6 @@
 const User = require("./userSchema")
 
 module.exports = checkDateActivation = async (expDate, cardDigits) => {
-    // cardNo = '6746'; 
     console.log(cardDigits + " date check")
     const user = await User.findOne({expirydate: expDate, cardnumber: {$regex: cardDigits}})
     console.log(user + " date check")

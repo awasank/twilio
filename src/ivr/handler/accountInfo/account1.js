@@ -7,7 +7,6 @@ const accountMenu = require("../../options/accountMenu")
 const customerRep = require("../../options/customerRep")
 const checkUserCard = require("../../../db/checkUserCard")
 const invalidInfo = require("../../options/invalidInfo");
-
 module.exports = async function account1(digits) {
     // console.log("Here")
     console.log("Handler account1")
@@ -19,7 +18,9 @@ module.exports = async function account1(digits) {
     //     digit = '2';
     // }
     var cardDigits = ''
-    const userCardStatus = await checkUserCard(digits);
+    var userCardStatus = false;
+    if (digits.length === 4) userCardStatus = await checkUserCard(digits);
+    
     console.log(userCardStatus)
 // <<<<<<< HEAD
     var userAccount = {};
@@ -28,7 +29,9 @@ module.exports = async function account1(digits) {
 
         digit = 1
     } else {
-        await invalidInfo()
+        
+        // return invalidInfo()
+
         digit = 2
     }
     // digit = 1;

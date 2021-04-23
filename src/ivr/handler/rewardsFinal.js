@@ -13,6 +13,7 @@ module.exports = async function rewardsFinal(digit, pin, cardDigits) {
     const userAccount = await getAccountInfo(pin, cardDigits)
     const optionActions = {
       '1': rewardPoints, //
+      '2': accountMenu,
       '9': redirectWelcome,
       '0': customerRep
     };

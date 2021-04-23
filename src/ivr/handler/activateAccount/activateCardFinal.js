@@ -15,6 +15,7 @@ module.exports = function activateCardFinal(digits) {
     console.log(digits)
     const optionActions = {
       '9': redirectWelcome,
+      '0': customerRep
     };
     // const digit = '2'
     // console.log("digit")

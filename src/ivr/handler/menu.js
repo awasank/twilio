@@ -11,12 +11,10 @@ module.exports = function menu(digit) {
     console.log(digit)
     console.log("Menu")
     const optionActions = {
-      '1': productsList,
-      '2': offersList,
-      '3': accountInfo1,
-      '4': becomeMember,
-      '5': activateCardNo,
-      '0': customerRep
+      '1': accountInfo1,
+      '2': activateCardNo,
+      '0': customerRep,
+      '9': redirectWelcome
     };
   
     return (optionActions[digit])

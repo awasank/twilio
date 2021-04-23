@@ -32,7 +32,6 @@ module.exports = options = {
             "event": "keypress"
           },
           {
-            "next": "main_menu_speech",
             "event": "speech"
           },
           {
@@ -50,7 +49,7 @@ module.exports = options = {
           },
           "loop": 1,
           "finish_on_key": "",
-          "say": "Hello, Welcome to Plastik. \n\nPress 1 for our list of products, \n\nPress 2 for our list of offers,\n\npress 3 for information about your account,\n\npress 4 to learn how to become a member,\n\npress 5 to activate your card,\n\npress 0 at anytime to speak to a customer representative,\n\nor press 9 to return to main menu",
+          "say": "Hello, Welcome to Plastik. \n\npress 1 for information about your account,\n\npress 2 to activate your card,\n\npress 0 at anytime to speak to a customer representative,\n\nor press 9 to return to main menu",
           "language": "en-US",
           "stop_gather": false,
           "gather_language": "en",
@@ -67,7 +66,7 @@ module.exports = options = {
             "event": "noMatch"
           },
           {
-            "next": "list_of_products",
+            "next": "card_info_gather",
             "event": "match",
             "conditions": [
               {
@@ -81,7 +80,7 @@ module.exports = options = {
             ]
           },
           {
-            "next": "list_of_promos",
+            "next": "activate_card_16digit",
             "event": "match",
             "conditions": [
               {
@@ -91,48 +90,6 @@ module.exports = options = {
                 ],
                 "type": "equal_to",
                 "value": "2"
-              }
-            ]
-          },
-          {
-            "next": "card_info_gather",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "3",
-                "arguments": [
-                  "{{widgets.main_menu.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "3"
-              }
-            ]
-          },
-          {
-            "next": "become_member_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "4",
-                "arguments": [
-                  "{{widgets.main_menu.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "4"
-              }
-            ]
-          },
-          {
-            "next": "activate_card_16digit",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "5",
-                "arguments": [
-                  "{{widgets.main_menu.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "5"
               }
             ]
           },
@@ -158,135 +115,6 @@ module.exports = options = {
                 "friendly_name": "0",
                 "arguments": [
                   "{{widgets.main_menu.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          },
-          {
-            "next": "function_1",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "6",
-                "arguments": [
-                  "{{widgets.main_menu.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "6"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.main_menu.Digits}}",
-          "offset": {
-            "x": 100,
-            "y": 510
-          }
-        }
-      },
-      {
-        "name": "main_menu_speech",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "main_menu_failed",
-            "event": "noMatch"
-          },
-          {
-            "next": "list_of_products",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "1",
-                "arguments": [
-                  "{{become}}"
-                ],
-                "type": "equal_to",
-                "value": "1"
-              }
-            ]
-          },
-          {
-            "next": "list_of_promos",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "2",
-                "arguments": [
-                  "{{become}}"
-                ],
-                "type": "equal_to",
-                "value": "2"
-              }
-            ]
-          },
-          {
-            "next": "card_info_gather",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "3",
-                "arguments": [
-                  "{{become}}"
-                ],
-                "type": "equal_to",
-                "value": "3"
-              }
-            ]
-          },
-          {
-            "next": "become_member_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "4",
-                "arguments": [
-                  "{{become}}"
-                ],
-                "type": "equal_to",
-                "value": "4"
-              }
-            ]
-          },
-          {
-            "next": "activate_card_16digit",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "5",
-                "arguments": [
-                  "{{become}}"
-                ],
-                "type": "equal_to",
-                "value": "5"
-              }
-            ]
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{become}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{become}}"
                 ],
                 "type": "equal_to",
                 "value": "0"
@@ -295,10 +123,10 @@ module.exports = options = {
           }
         ],
         "properties": {
-          "input": "{{become}}",
+          "input": "{{widgets.main_menu.Digits}}",
           "offset": {
-            "x": 620,
-            "y": 510
+            "x": 160,
+            "y": 550
           }
         }
       },
@@ -427,381 +255,6 @@ module.exports = options = {
         }
       },
       {
-        "name": "list_of_products",
-        "type": "say-play",
-        "transitions": [
-          {
-            "next": "products_ending",
-            "event": "audioComplete"
-          }
-        ],
-        "properties": {
-          "offset": {
-            "x": 1410,
-            "y": 140
-          },
-          "loop": 1,
-          "say": "Our list of products includes:\n\nPlastic credit card, \n\nand so on."
-        }
-      },
-      {
-        "name": "products_ending",
-        "type": "gather-input-on-call",
-        "transitions": [
-          {
-            "next": "product_ending_digit",
-            "event": "keypress"
-          },
-          {
-            "next": "product_ending_speech",
-            "event": "speech"
-          },
-          {
-            "event": "timeout"
-          }
-        ],
-        "properties": {
-          "number_of_digits": 1,
-          "speech_timeout": "auto",
-          "offset": {
-            "x": 1810,
-            "y": 140
-          },
-          "loop": 1,
-          "finish_on_key": "#",
-          "say": "press 1 to repeat the list of products,\n\npress 0 to talk to a customer representative,\n\nor press 9 to return to the main menu",
-          "stop_gather": false,
-          "gather_language": "en",
-          "profanity_filter": "true",
-          "timeout": 5
-        }
-      },
-      {
-        "name": "product_ending_digit",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "products_no_answer",
-            "event": "noMatch"
-          },
-          {
-            "next": "list_of_products",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "1",
-                "arguments": [
-                  "{{widgets.products_ending.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "1"
-              }
-            ]
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{widgets.products_ending.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{widgets.products_ending.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.products_ending.Digits}}",
-          "offset": {
-            "x": 2200,
-            "y": -20
-          }
-        }
-      },
-      {
-        "name": "product_ending_speech",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "products_no_answer",
-            "event": "noMatch"
-          },
-          {
-            "next": "list_of_products",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "1",
-                "arguments": [
-                  "{{widgets.products_ending.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "1"
-              }
-            ]
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{widgets.products_ending.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{widgets.products_ending.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.products_ending.SpeechResult}}",
-          "offset": {
-            "x": 2190,
-            "y": 220
-          }
-        }
-      },
-      {
-        "name": "products_no_answer",
-        "type": "say-play",
-        "transitions": [
-          {
-            "next": "products_ending",
-            "event": "audioComplete"
-          }
-        ],
-        "properties": {
-          "offset": {
-            "x": 2570,
-            "y": 130
-          },
-          "loop": 1,
-          "say": "Sorry, we were not able to get your answer"
-        }
-      },
-      {
-        "name": "list_of_promos",
-        "type": "say-play",
-        "transitions": [
-          {
-            "next": "promo_ending",
-            "event": "audioComplete"
-          }
-        ],
-        "properties": {
-          "offset": {
-            "x": 1360,
-            "y": 620
-          },
-          "loop": 1,
-          "say": "Earn an extra 100 points for every cannuck ticket bought using our plastic reward card. \n\nfor every person you refer, you will earn an extra 200 reward points."
-        }
-      },
-      {
-        "name": "promo_ending",
-        "type": "gather-input-on-call",
-        "transitions": [
-          {
-            "next": "promo_ending_digit",
-            "event": "keypress"
-          },
-          {
-            "next": "promo_ending_speech",
-            "event": "speech"
-          },
-          {
-            "next": "promo_ending",
-            "event": "timeout"
-          }
-        ],
-        "properties": {
-          "voice": "man",
-          "number_of_digits": 1,
-          "speech_timeout": "auto",
-          "offset": {
-            "x": 1790,
-            "y": 610
-          },
-          "loop": 1,
-          "finish_on_key": "#",
-          "say": "press 1 to repeat the list of promotions,\n\npress 0 to talk to a customer representative,\n\nor press 9 to return to the main menu",
-          "language": "en-US",
-          "stop_gather": false,
-          "gather_language": "en",
-          "profanity_filter": "true",
-          "timeout": 5
-        }
-      },
-      {
-        "name": "promo_ending_digit",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "main_menu",
-            "event": "noMatch"
-          },
-          {
-            "next": "promo_ending",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "1",
-                "arguments": [
-                  "{{widgets.promo_ending.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "1"
-              }
-            ]
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{widgets.promo_ending.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{widgets.promo_ending.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.promo_ending.Digits}}",
-          "offset": {
-            "x": 2210,
-            "y": 520
-          }
-        }
-      },
-      {
-        "name": "promo_ending_speech",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "promo_no_answer",
-            "event": "noMatch"
-          },
-          {
-            "next": "promo_ending",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "1",
-                "arguments": [
-                  "{{widgets.promo_ending.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "1"
-              }
-            ]
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{widgets.promo_ending.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{widgets.promo_ending.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.promo_ending.SpeechResult}}",
-          "offset": {
-            "x": 2210,
-            "y": 780
-          }
-        }
-      },
-      {
-        "name": "promo_no_answer",
-        "type": "say-play",
-        "transitions": [
-          {
-            "next": "promo_ending",
-            "event": "audioComplete"
-          }
-        ],
-        "properties": {
-          "offset": {
-            "x": 2600,
-            "y": 650
-          },
-          "loop": 1,
-          "say": "Sorry, we were not able to get your answer"
-        }
-      },
-      {
         "name": "card_info_gather",
         "type": "gather-input-on-call",
         "transitions": [
@@ -813,6 +266,7 @@ module.exports = options = {
             "event": "speech"
           },
           {
+            "next": "main_menu",
             "event": "timeout"
           }
         ],
@@ -1121,6 +575,7 @@ module.exports = options = {
             "event": "speech"
           },
           {
+            "next": "main_menu",
             "event": "timeout"
           }
         ],
@@ -1259,149 +714,6 @@ module.exports = options = {
         }
       },
       {
-        "name": "become_member_say",
-        "type": "say-play",
-        "transitions": [
-          {
-            "next": "become_member_gather",
-            "event": "audioComplete"
-          }
-        ],
-        "properties": {
-          "voice": "man",
-          "offset": {
-            "x": 1290,
-            "y": 1920
-          },
-          "loop": 1,
-          "say": "In order to become a member, you need a proof of identification and a supporting document. \n\nyou need a credit score of 300 in order to qualify for our credit card.\n\nvisit w w w dot plastk dot com slash apply in order to apply.",
-          "language": "en-US"
-        }
-      },
-      {
-        "name": "become_member_gather",
-        "type": "gather-input-on-call",
-        "transitions": [
-          {
-            "next": "become_member_digit",
-            "event": "keypress"
-          },
-          {
-            "next": "become_member_voice",
-            "event": "speech"
-          },
-          {
-            "next": "become_member_say",
-            "event": "timeout"
-          }
-        ],
-        "properties": {
-          "number_of_digits": 1,
-          "speech_timeout": "auto",
-          "offset": {
-            "x": 1710,
-            "y": 1910
-          },
-          "loop": 1,
-          "finish_on_key": "#",
-          "say": "to return back to the main menu, press 9.\n\nto talk to a customer representative, press 0",
-          "stop_gather": false,
-          "gather_language": "en",
-          "profanity_filter": "true",
-          "timeout": 5
-        }
-      },
-      {
-        "name": "become_member_digit",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "become_member_gather",
-            "event": "noMatch"
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{widgets.become_member_gather.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{widgets.become_member_gather.Digits}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.become_member_gather.Digits}}",
-          "offset": {
-            "x": 2110,
-            "y": 1910
-          }
-        }
-      },
-      {
-        "name": "become_member_voice",
-        "type": "split-based-on",
-        "transitions": [
-          {
-            "next": "become_member_gather",
-            "event": "noMatch"
-          },
-          {
-            "next": "main_menu",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "9",
-                "arguments": [
-                  "{{widgets.become_member_gather.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "9"
-              }
-            ]
-          },
-          {
-            "next": "call_say",
-            "event": "match",
-            "conditions": [
-              {
-                "friendly_name": "0",
-                "arguments": [
-                  "{{widgets.become_member_gather.SpeechResult}}"
-                ],
-                "type": "equal_to",
-                "value": "0"
-              }
-            ]
-          }
-        ],
-        "properties": {
-          "input": "{{widgets.become_member_gather.SpeechResult}}",
-          "offset": {
-            "x": 2100,
-            "y": 2180
-          }
-        }
-      },
-      {
         "name": "activate_card_16digit",
         "type": "gather-input-on-call",
         "transitions": [
@@ -1413,6 +725,7 @@ module.exports = options = {
             "event": "speech"
           },
           {
+            "next": "main_menu",
             "event": "timeout"
           }
         ],
@@ -1425,7 +738,7 @@ module.exports = options = {
           },
           "loop": 1,
           "finish_on_key": "#",
-          "say": "In order to begin the proces of activating your card, enter the 14 digit of the card your received",
+          "say": "In order to begin the process of activating your card, enter the 14 digit of the card your received",
           "stop_gather": false,
           "gather_language": "en",
           "profanity_filter": "true",
@@ -1538,6 +851,7 @@ module.exports = options = {
             "event": "speech"
           },
           {
+            "next": "main_menu",
             "event": "timeout"
           }
         ],
@@ -1548,7 +862,7 @@ module.exports = options = {
             "x": 2950,
             "y": 2570
           },
-          "loop": 1,
+          "loop": 2,
           "finish_on_key": "#",
           "say": "Enter the 3 cvv digit in the back of your card to continue.",
           "stop_gather": false,
@@ -1613,6 +927,7 @@ module.exports = options = {
             "event": "speech"
           },
           {
+            "next": "main_menu",
             "event": "timeout"
           }
         ],
@@ -1623,7 +938,7 @@ module.exports = options = {
             "x": 3990,
             "y": 2560
           },
-          "loop": 1,
+          "loop": 2,
           "finish_on_key": "#",
           "say": "For security reason, please enter your year of birth",
           "stop_gather": false,
@@ -1675,6 +990,7 @@ module.exports = options = {
             "event": "speech"
           },
           {
+            "next": "main_menu",
             "event": "timeout"
           }
         ],
@@ -1687,7 +1003,7 @@ module.exports = options = {
           },
           "loop": 1,
           "finish_on_key": "#",
-          "say": "Thank you for using our automated call to activate your credit card. \n\nan email or text message will be sent in the next 12 hours to confirm the activation of your card.\n\nPress 9 to return to the main menu or press 0 to speak to a customer representative.",
+          "say": "Thank you for using our automated call to activate your credit card. \n\nan email or text message will be sent in the next 12 hours to confirm the activation of your card.\n\nPress the pound key to return to the main menu or press 0 to speak to a customer representative.",
           "stop_gather": false,
           "gather_language": "en",
           "profanity_filter": "true",
@@ -1838,6 +1154,7 @@ module.exports = options = {
         "type": "split-based-on",
         "transitions": [
           {
+            "next": "reward_menu",
             "event": "noMatch"
           },
           {
@@ -1965,7 +1282,7 @@ module.exports = options = {
           },
           "loop": 1,
           "finish_on_key": "#",
-          "say": "Press 1 to return to the rewards menu.\n\npress 2 to return to the accounts menu.\n\npress 9 to return to the main menu.\n\nor press 0 to talk to a customer representative",
+          "say": "Press 1 to return to the rewards menu.\n\npress 9 to return to the main menu.\n\nor press 0 to talk to a customer representative",
           "stop_gather": false,
           "gather_language": "en",
           "profanity_filter": "true",
@@ -2067,7 +1384,7 @@ module.exports = options = {
         "type": "gather-input-on-call",
         "transitions": [
           {
-            "next": "split_4",
+            "next": "account_issues_split",
             "event": "keypress"
           },
           {
@@ -2142,6 +1459,19 @@ module.exports = options = {
                 "value": "3"
               }
             ]
+          },
+          {
+            "event": "match",
+            "conditions": [
+              {
+                "friendly_name": "0",
+                "arguments": [
+                  "{{widgets.card_issues_gather.Digits}}"
+                ],
+                "type": "equal_to",
+                "value": "0"
+              }
+            ]
           }
         ],
         "properties": {
@@ -2153,7 +1483,7 @@ module.exports = options = {
         }
       },
       {
-        "name": "split_4",
+        "name": "account_issues_split",
         "type": "split-based-on",
         "transitions": [
           {

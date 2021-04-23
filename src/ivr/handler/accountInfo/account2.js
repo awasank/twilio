@@ -8,16 +8,11 @@ const customerRep = require("../../options/customerRep")
 const checkUserPin = require("../../../db/checkUserPin")
 // <<<<<<< HEAD
 module.exports = async function account2(userAcc, digits, cardDigits) {
-    // console.log("Here")
+
     console.log("Handler account2")
-    // console.log(digits)
+
     var digit = ''
-    // if (digits === "1234") {
-    //     digit = '1';
-    // } else {
-    //     digit = '2';
-    // }
-    // console.log("card digits" + cardDigits)
+
     const userCardStatus = await checkUserPin(digits, cardDigits);
     console.log(userCardStatus)
     var userAccount = {}
@@ -26,7 +21,6 @@ module.exports = async function account2(userAcc, digits, cardDigits) {
         userAccount = userCardStatus
         digit = 1
     } else {
-        // cardDigits = digits
         digit = 2
     }
     const optionActions = {

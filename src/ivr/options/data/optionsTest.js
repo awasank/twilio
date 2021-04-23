@@ -1,4 +1,4 @@
-const options = require("./firstPrototype2");
+const options = require("./prototype.js");
 
 
 const states = options.states;

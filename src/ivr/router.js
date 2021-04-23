@@ -17,7 +17,7 @@ const activateCardFinal = require("./handler/activateAccount/activateCardFinal")
 const rewards = require("./handler/rewards")
 const rewardsFinal = require("./handler/rewardsFinal")
 
-const VoiceResponse = require('twilio').twiml.VoiceResponse;
+const customerRep = require("./handler/customerRep")
 
 const router = new Router();
 
@@ -114,20 +114,20 @@ router.post('/activate-card-final', (req, res) => {
 });
 
 router.post('/enqueue', function (req, res) {
-  
   console.log("/ivr/enqueue")
-  var twimlResponse = new VoiceResponse();
+  // var twimlResponse = new VoiceResponse();
   
-  console.log("/ivr/enqueue1")
-  console.log(process.env.WORKFLOW_SID)
   
-  var enqueue = twimlResponse.enqueue(
-    {workflowSid: "WW522b8b530159e8e76cc15c55cd222156"},"support");
-  console.log("/ivr/enqueue2")
-  enqueue.task({},JSON.stringify({skills: "support"}));
-  console.log("/ivr/enqueue3")
-  res.type('text/xml');
-  return res.send(twimlResponse.toString());
+  // console.log(process.env.WORKFLOW_SID)
+  
+  // var enqueue = twimlResponse.enqueue(
+  //   {workflowSid: process.env.WORKFLOW_SID},"support");
+  
+  // enqueue.task({},JSON.stringify({skills: "support"}));
+  
+  // res.type('text/xml');
+  // return res.send(twimlResponse.toString());
+  return res.send(customerRep(res));
 });
 
 module.exports = router;

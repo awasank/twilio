@@ -1,15 +1,14 @@
-const productsList = require("../../options/products");
-const offersList = require("../../options/offers");
+// const productsList = require("../../options/products");
+// const offersList = require("../../options/offers");
 const accountInfo1 = require("../../options/accountInfo1");
-const accountInfo2 = require("../../options/accountInfo2");
+// const accountInfo2 = require("../../options/accountInfo2");
 const redirectWelcome = require("../../options/redirectWelcome")
 const customerRep = require("../../options/customerRep")
-const activateCardDt = require("../../options/activateCardDt");
+// const activateCardDt = require("../../options/activateCardDt");
 const activateCardCvv = require("../../options/activateCardCvv");
 const checkDateActivation = require("../../../db/checkDateActivation");
 
 module.exports = async function activateCardDate(digits, cardDigits) {
-    // console.log(typeof digits)
     console.log("Activate card date" + digits + " " + cardDigits)
     var digit = ''
 

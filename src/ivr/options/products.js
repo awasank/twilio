@@ -6,7 +6,6 @@ module.exports = productsList = () => {
     const product = sayPlay.filter(e => e.name === "list_of_products")
     const product_ending = gatherInputCalls.filter(e => e.name === "products_ending")
     const voiceResponse = new VoiceResponse();
-    // console.log("Products");
 
     const gather = voiceResponse.gather({
         action: '/ivr/products',

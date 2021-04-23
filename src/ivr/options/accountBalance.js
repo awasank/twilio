@@ -7,7 +7,7 @@ module.exports = accountBalance = (userAccount, pin, cardDigits) => {
     const cardInfo = sayPlay.filter(e => e.name === "acc_bal_say")
     const text_end = gatherInputCalls.filter(e => e.name === "acc_details_end")
     const voiceResponse = new VoiceResponse();
-    // console.log("Products");
+    
     console.log(pin)
     console.log(cardDigits)
     const gather = voiceResponse.gather({
@@ -15,12 +15,9 @@ module.exports = accountBalance = (userAccount, pin, cardDigits) => {
         numDigits: '1',
         method: 'POST',
     });
-    // console.log(userAccount.username)
-    // console.log(userAccount.balance)
+    
     const text = "You account balance is $" + userAccount.balance;
-    // gather.say(cardInfo[0].properties.say
-    // );
-    // console.log(text)
+    
     gather.say(text)
     gather.say(text_end[0].properties.say);
 

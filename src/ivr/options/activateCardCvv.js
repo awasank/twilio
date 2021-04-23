@@ -7,9 +7,8 @@ module.exports = activateCardCvv = (digits, expDate, cardDigits) => {
     console.log(cardDigits + " in activate cvv")
     const cardInfo = gatherInputCalls.filter(e => e.name === "activate_cvv_gather")
     console.log(cardInfo[0].properties.say)
-    // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
+
     const voiceResponse = new VoiceResponse();
-    // console.log("Account Menu");
 
     const gather = voiceResponse.gather({
         action: `/ivr/activate-card-cvv${expDate}&${cardDigits}`,
@@ -19,10 +18,6 @@ module.exports = activateCardCvv = (digits, expDate, cardDigits) => {
 
     gather.say(cardInfo[0].properties.say
     );
-    // gather.say(offers_ending[0].properties.say,
-    //     {voice: 'alice', language: 'en-GB'}
-    // );
-
 
     return voiceResponse.toString();
 }

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose")
 const User = require("./userSchema");
-// const {MongoClient} = require('mongodb');
-const checkUserCard = require("./checkUserCard")
+
 module.exports = async function connectdb(){
     mongoose.connect(process.env.MONGO_URL, {
         useUnifiedTopology: true,
@@ -9,25 +8,10 @@ module.exports = async function connectdb(){
       });
       mongoose.set("useCreateIndex", true);
     
-    // User.find({}, (err, usr) => {
-    //     if (err){
-    //         console.log(err)
-    //     } else{
-    //         usr.map(u => console.log(u))
-    //     }
-    // })
-      
-    // checkUserCard('6746', (err, status) => {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-    //         console.log(status)
-    //     }
-    // })
-    cardNo = '1234';
-    const user = await User.findOne({cardnumber: {$regex: cardNo}})
-    console.log(user)
-    // console.log(resp)
+    // cardNo = '1234';
+    // const user = await User.findOne({cardnumber: {$regex: cardNo}})
+    // console.log(user)
+    
 }
 
  

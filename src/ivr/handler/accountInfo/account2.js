@@ -1,12 +1,12 @@
-const productsList = require("../../options/products");
-const offersList = require("../../options/offers");
-const accountInfo1 = require("../../options/accountInfo1");
+// const productsList = require("../../options/products");
+// const offersList = require("../../options/offers");
+// const accountInfo1 = require("../../options/accountInfo1");
 const accountInfo2 = require("../../options/accountInfo2");
 const redirectWelcome = require("../../options/redirectWelcome")
 const accountMenu = require("../../options/accountMenu")
 const customerRep = require("../../options/customerRep")
 const checkUserPin = require("../../../db/checkUserPin")
-// <<<<<<< HEAD
+
 module.exports = async function account2(userAcc, digits, cardDigits) {
 
     console.log("Handler account2")

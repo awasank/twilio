@@ -1,5 +1,5 @@
 const productsList = require("../options/products");
-const offersList = require("../options/offers");
+// const offersList = require("../options/offers");
 // const accountInfo = require("../options/accountInfo");
 const redirectWelcome = require("../options/redirectWelcome")
 const customerRep = require("../options/customerRep")

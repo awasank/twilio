@@ -15,8 +15,6 @@ module.exports = pointBalance = (userAccount, pin, cardDigits) => {
         method: 'POST',
     });
 
-    // gather.say(offers[0].properties.say
-    // );
     const text = "You reward point balance is " + userAccount.rewardpts;
     gather.say(text)
     gather.say(offers_ending[0].properties.say);

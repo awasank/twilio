@@ -10,7 +10,7 @@ module.exports = async function welcome() {
     });
     
     const text = gatherInputCalls.filter(e => e.name === names_gatherInputCalls[0])
-    // console.log(text[0])
+    
     gather.say(text[0].properties.say,
       {loop: 3}
     );

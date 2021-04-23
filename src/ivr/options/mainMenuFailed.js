@@ -6,7 +6,7 @@ module.exports = mainMenuFailed = () => {
     console.log("accountMenu")
     const cardInfo = gatherInputCalls.filter(e => e.name === "main_menu_failed")
     console.log(cardInfo[0].properties.say)
-    // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
+
     const voiceResponse = new VoiceResponse();
     console.log("Account Menu");
 
@@ -18,10 +18,6 @@ module.exports = mainMenuFailed = () => {
 
     gather.say(cardInfo[0].properties.say
     );
-    // gather.say(offers_ending[0].properties.say,
-    //     {voice: 'alice', language: 'en-GB'}
-    // );
-
 
     return voiceResponse.toString();
 }

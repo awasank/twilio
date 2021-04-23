@@ -1,13 +1,13 @@
-const productsList = require("../options/products");
-const offersList = require("../options/offers");
+// const productsList = require("../options/products");
+// const offersList = require("../options/offers");
 const accountInfo1 = require("../options/accountInfo1");
 const redirectWelcome = require("../options/redirectWelcome")
-const becomeMember = require("../options/becomeMember");
+// const becomeMember = require("../options/becomeMember");
 const customerRep = require("../options/customerRep");
 const activateCardNo = require("../options/activateCardNo");
 
 module.exports = function menu(digit) {
-    // console.log("Here")
+    
     console.log(digit)
     console.log("Menu")
     const optionActions = {

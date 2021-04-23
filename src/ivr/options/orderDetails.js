@@ -7,7 +7,6 @@ module.exports = orderDetails = (userAccount, pin, cardDigits) => {
     const offers = sayPlay.filter(e => e.name === "order_status_play")
     const offers_ending = gatherInputCalls.filter(e => e.name === "rewards_ending_gather")
     const voiceResponse = new VoiceResponse();
-    // console.log("Products");
 
     const gather = voiceResponse.gather({
         action: `/ivr/account-options-rewards-ending/${pin}&${cardDigits}`,

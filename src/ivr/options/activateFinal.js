@@ -6,9 +6,8 @@ module.exports = activateFinal = () => {
     console.log("Activate Card Number")
     const cardInfo = gatherInputCalls.filter(e => e.name === "activation_final_gather")
     console.log(cardInfo[0].properties.say)
-    // const offers_ending = gatherInputCalls.filter(e => e.name === "promo_ending")
+
     const voiceResponse = new VoiceResponse();
-    // console.log("Account Menu");
 
     const gather = voiceResponse.gather({
         action: '/ivr/activate-card-final',
@@ -18,10 +17,6 @@ module.exports = activateFinal = () => {
 
     gather.say(cardInfo[0].properties.say
     );
-    // gather.say(offers_ending[0].properties.say,
-    //     {voice: 'alice', language: 'en-GB'}
-    // );
-
 
     return voiceResponse.toString();
 }
